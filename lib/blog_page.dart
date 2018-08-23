@@ -6,12 +6,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_go/blog_card.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class CreateBlogPage extends StatefulWidget {
+class BlogPage extends StatefulWidget {
   @override
-  _CreateBlogPageState createState() => _CreateBlogPageState();
+  _BlogPageState createState() => _BlogPageState();
 }
 
-class _CreateBlogPageState extends State<CreateBlogPage> {
+class _BlogPageState extends State<BlogPage> {
   List _blogs;
 
   Future<dynamic> getStore() async {
@@ -61,7 +61,7 @@ class _CreateBlogPageState extends State<CreateBlogPage> {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => PostBLogPage(),
+              builder: (context) => PostBlogPage(),
             ),
           );
         },

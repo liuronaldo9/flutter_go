@@ -4,12 +4,12 @@ import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class PostBLogPage extends StatefulWidget {
+class PostBlogPage extends StatefulWidget {
   @override
-  _PostBLogPageState createState() => _PostBLogPageState();
+  _PostBlogPageState createState() => _PostBlogPageState();
 }
 
-class _PostBLogPageState extends State<PostBLogPage> {
+class _PostBlogPageState extends State<PostBlogPage> {
   final formKey = GlobalKey<FormState>();
   String _title, _content;
 
