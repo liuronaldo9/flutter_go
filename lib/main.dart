@@ -26,8 +26,8 @@ class MyApp extends StatelessWidget {
       routes: {
         '/': (BuildContext context) => AuthPage(),
         '/signup': (BuildContext context) => SignupPage(),
-        '/blogs':(context)=>BlogPage(),
-        '/post':(context)=>PostBlogPage()
+        '/blogs':(BuildContext context)=>BlogPage(),
+        '/post':(BuildContext context)=>PostBlogPage()
       },
     );
   }

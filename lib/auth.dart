@@ -101,7 +101,7 @@ class _AuthPageState extends State<AuthPage> {
       // prefs.setString('expiresAt', responseData['data']['expiresAt']);
       // prefs.setString('refreshToken', responseData['data']['refreshToken']);
       prefs.setString('userID', responseData['data']['id']);
-      // Navigator.of(context).pushReplacementNamed('/store');
+      Navigator.of(context).pushReplacementNamed('/blogs');
       print(responseData);
       return null;
     }

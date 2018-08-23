@@ -20,6 +20,7 @@ class _PostBlogPageState extends State<PostBlogPage> {
       setState(() {
         form.save();
         this.postBlog();
+        Navigator.of(context).pushReplacementNamed('/blogs');
       });
     }
   }
@@ -28,18 +29,18 @@ class _PostBlogPageState extends State<PostBlogPage> {
     final prefs = await SharedPreferences.getInstance();
     final response = await http.post(
       'https://dev.gogox.co.nz/v1/core/testblog/blog',
-      headers: {'Content-Type': 'application/json'},
+      // headers: {'Content-Type': 'application/json'},
       body: {
         'title': _title,
         'content': _content,
-        'userID': prefs.getString('uid'),
+        'userID': prefs.getString('userID'),
       },
     );
     //final responseJson = json.decode(response.body);
     final int statusCode = response.statusCode;
 
     if (statusCode == 200) {
-      return Navigator.pop(context);
+      return 'success';
     } else {
       return 'failed';
     }

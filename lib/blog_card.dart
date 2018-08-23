@@ -1,4 +1,7 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
 
 class BlogCard extends StatefulWidget {
   BlogCard({
@@ -23,6 +26,23 @@ class BlogCard extends StatefulWidget {
 }
 
 class _BlogCardState extends State<BlogCard> {
+  Future<dynamic> deleteBlog(String bid) async {
+    final response = await http
+        .delete('https://dev.gogox.co.nz/v1/core/testblog/blog?id=' + bid);
+    final int statusCode = response.statusCode;
+    if (statusCode == 200) {
+      this.dispose();
+      return 'success';
+    } else {
+      return 'failed';
+    }
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -44,7 +64,14 @@ class _BlogCardState extends State<BlogCard> {
                 child: Column(
                   children: <Widget>[
                     Text(widget.content),
-                    Text(widget.user + " @" + widget.createdAt),
+                    Text(widget.user),
+                    Text(widget.createdAt),
+                    RaisedButton(
+                      child: Text('delete'),
+                      onPressed: () {
+                        deleteBlog(widget.id);
+                      },
+                    )
                   ],
                 ),
               ),
